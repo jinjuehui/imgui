@@ -189,6 +189,18 @@ static inline void SafeRelease(T*& res)
     res = nullptr;
 }
 
+unsigned int ImGui_ImplDX12_GetNextFrameIndex()
+{
+    ImGui_ImplDX12_Data* bd = ImGui_ImplDX12_GetBackendData();
+    return ++bd->frameIndex;
+}
+
+unsigned int ImGui_ImplDX12_GetCurrentFrameIndex()
+{
+    ImGui_ImplDX12_Data* bd = ImGui_ImplDX12_GetBackendData();
+    return bd->frameIndex;
+}
+
 // Render function
 void ImGui_ImplDX12_RenderDrawData(ImDrawData* draw_data, ID3D12GraphicsCommandList* command_list)
 {
