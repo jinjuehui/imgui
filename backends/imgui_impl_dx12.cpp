@@ -840,6 +840,9 @@ bool ImGui_ImplDX12_Init(ImGui_ImplDX12_InitInfo* init_info)
     bd->pd3dDevice = init_info->Device;
     IM_ASSERT(init_info->CommandQueue != NULL);
     bd->pCommandQueue = init_info->CommandQueue;
+    bd->pPipelineState = init_info->pso ? init_info->pso : nullptr;
+    bd->pRootSignature = init_info->rootSignature ? init_info->rootSignature : nullptr;
+
     bd->RTVFormat = init_info->RTVFormat;
     bd->DSVFormat = init_info->DSVFormat;
     bd->numFramesInFlight = init_info->NumFramesInFlight;

@@ -29,6 +29,10 @@ struct ImGui_ImplDX12_InitInfo
 {
     ID3D12Device*               Device;
     ID3D12CommandQueue*         CommandQueue;       // Command queue used for queuing texture uploads.
+
+    ID3D12RootSignature*        rootSignature;
+    ID3D12PipelineState*        pso;
+
     int                         NumFramesInFlight;
     DXGI_FORMAT                 RTVFormat;          // RenderTarget format.
     DXGI_FORMAT                 DSVFormat;          // DepthStencilView format.
