@@ -56,7 +56,7 @@ IMGUI_IMPL_API bool     ImGui_ImplDX12_Init(ImGui_ImplDX12_InitInfo* info);
 IMGUI_IMPL_API void     ImGui_ImplDX12_Shutdown();
 IMGUI_IMPL_API void     ImGui_ImplDX12_NewFrame();
 IMGUI_IMPL_API void     ImGui_ImplDX12_RenderDrawData(ImDrawData* draw_data, ID3D12GraphicsCommandList* graphics_command_list);
-IMGUI_IMPL_API unsigned int ImGui_ImplDX12_GetNextFrameIndex();
+IMGUI_IMPL_API unsigned int ImGui_ImplDX12_UpdateFrameIndex();
 IMGUI_IMPL_API unsigned int ImGui_ImplDX12_GetCurrentFrameIndex();
 
 #ifndef IMGUI_DISABLE_OBSOLETE_FUNCTIONS

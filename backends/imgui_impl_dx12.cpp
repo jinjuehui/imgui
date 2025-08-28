@@ -189,7 +189,7 @@ static inline void SafeRelease(T*& res)
     res = nullptr;
 }
 
-unsigned int ImGui_ImplDX12_GetNextFrameIndex()
+unsigned int ImGui_ImplDX12_UpdateFrameIndex()
 {
     ImGui_ImplDX12_Data* bd = ImGui_ImplDX12_GetBackendData();
     return ++bd->frameIndex;
