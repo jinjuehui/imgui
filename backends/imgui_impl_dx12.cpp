@@ -364,6 +364,24 @@ static void ImGui_ImplDX12_DestroyTexture(ImTextureData* tex)
     tex->BackendUserData = nullptr;
 }
 
+void ImGui_ImplDX12_SetupBackendTexture(ImTextureData* tex, ID3D12Resource* pTexture, D3D12_CPU_DESCRIPTOR_HANDLE hFontSrvCpuDescHandle, D3D12_GPU_DESCRIPTOR_HANDLE hFontSrvGpuDescHandle)
+{
+    if (!tex)
+        return;
+
+    // if already have, create new
+    ImGui_ImplDX12_Texture* backend_tex = (ImGui_ImplDX12_Texture*)tex->BackendUserData;
+    if (!backend_tex)
+    {
+        backend_tex = IM_NEW(ImGui_ImplDX12_Texture)();
+        tex->BackendUserData = backend_tex;
+    }
+
+    backend_tex->hFontSrvCpuDescHandle = hFontSrvCpuDescHandle;
+    backend_tex->hFontSrvGpuDescHandle = hFontSrvGpuDescHandle;
+    backend_tex->pTextureResource = pTexture;
+}
+
 void ImGui_ImplDX12_UpdateTexture(ImTextureData* tex)
 {
     ImGui_ImplDX12_Data* bd = ImGui_ImplDX12_GetBackendData();

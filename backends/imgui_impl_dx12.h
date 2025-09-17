@@ -72,6 +72,7 @@ IMGUI_IMPL_API void     ImGui_ImplDX12_InvalidateDeviceObjects();
 
 // (Advanced) Use e.g. if you need to precisely control the timing of texture updates (e.g. for staged rendering), by setting ImDrawData::Textures = NULL to handle this manually.
 IMGUI_IMPL_API void     ImGui_ImplDX12_UpdateTexture(ImTextureData* tex);
+IMGUI_IMPL_API void     ImGui_ImplDX12_SetupBackendTexture(ImTextureData* tex, ID3D12Resource* pTexture = nullptr, D3D12_CPU_DESCRIPTOR_HANDLE hFontSrvCpuDescHandle = { 0 }, D3D12_GPU_DESCRIPTOR_HANDLE hFontSrvGpuDescHandle = { 0 });
 
 // [BETA] Selected render state data shared with callbacks.
 // This is temporarily stored in GetPlatformIO().Renderer_RenderState during the ImGui_ImplDX12_RenderDrawData() call.
